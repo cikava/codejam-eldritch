@@ -1,1 +1,1 @@
-https://cikava.github.com/codejam-eldritch/
+https://cikava.github.io/codejam-eldritch/
