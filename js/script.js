@@ -1,8 +1,451 @@
-import ancientsData from '../data/ancients.js'
-import difficulties from '../data/difficulties.js'
-import blueCardsData from '../data/mythicCards/blue/index.js';
-import brownCardsData from '../data/mythicCards/brown/index.js';
-import greenCardsData from '../data/mythicCards/green/index.js';
+const Ancients = {
+  azathoth: './assets/Ancients/Azathoth.png',
+  cthulhu: './assets/Ancients/Cthulthu.png',
+  iogSothoth: './assets/Ancients/IogSothoth.png',
+  shubNiggurath: './assets/Ancients/ShubNiggurath.png',
+};
+
+const ancientsData = [
+  {
+    id: 0,
+    name: 'azathoth',
+    cardFace: Ancients.azathoth,
+    sum: {
+      greenCards: 5,
+      blueCards: 2,
+      brownCards: 9,
+    },
+    firstStage: {
+      greenCards: 1,
+      blueCards: 1,
+      brownCards: 2,
+    },
+    secondStage: {
+      greenCards: 2,
+      blueCards: 1,
+      brownCards: 3,
+    },
+    thirdStage: {
+      greenCards: 2,
+      blueCards: 0,
+      brownCards: 4,
+    },
+  },
+  {
+    id: 1,
+    name: 'cthulhu',
+    cardFace: Ancients.cthulhu,
+    sum: {
+      greenCards: 4,
+      blueCards: 2,
+      brownCards: 9,
+    },
+    firstStage: {
+      greenCards: 0,
+      blueCards: 2,
+      brownCards: 2,
+    },
+    secondStage: {
+      greenCards: 1,
+      blueCards: 0,
+      brownCards: 3,
+    },
+    thirdStage: {
+      greenCards: 3,
+      blueCards: 0,
+      brownCards: 4,
+    },
+  },
+  {
+    id: 2,
+    name: 'iogSothoth',
+    cardFace: Ancients.iogSothoth,
+    sum: {
+      greenCards: 5,
+      blueCards: 2,
+      brownCards: 9,
+    },
+    firstStage: {
+      greenCards: 0,
+      blueCards: 1,
+      brownCards: 2,
+    },
+    secondStage: {
+      greenCards: 2,
+      blueCards: 1,
+      brownCards: 3,
+    },
+    thirdStage: {
+      greenCards: 3,
+      blueCards: 0,
+      brownCards: 4,
+    },
+  },
+  {
+    id: 3,
+    name: 'shubNiggurath',
+    cardFace: Ancients.shubNiggurath,
+    sum: {
+      greenCards: 6,
+      blueCards: 2,
+      brownCards: 8,
+    },
+    firstStage: {
+      greenCards: 1,
+      blueCards: 1,
+      brownCards: 2,
+    },
+    secondStage: {
+      greenCards: 3,
+      blueCards: 1,
+      brownCards: 2,
+    },
+    thirdStage: {
+      greenCards: 2,
+      blueCards: 0,
+      brownCards: 4,
+    },
+  },
+];
+
+const difficulties = [
+  {
+    id: 0,
+    name: 'very-easy'
+  },
+  {
+    id: 1,
+    name: 'easy'
+  },
+  {
+    id: 2,
+    name: 'normal'
+  },
+  {
+    id: 3,
+    name: 'hard'
+  },
+  {
+    id: 4,
+    name: 'very-hard'
+  },
+];
+
+
+const blueCardsData = [
+  {
+    id: 1,
+    cardFace: './assets/MythicCards/blue/blue1.png',
+    difficulty: 'hard',
+    color:'blue'
+  },
+  {
+    id: 2,
+    cardFace: './assets/MythicCards/blue/blue2.png',
+    difficulty: 'hard',
+    color:'blue'
+  },
+  {
+    id: 3,
+    cardFace: './assets/MythicCards/blue/blue3.png',
+    difficulty: 'easy',
+    color:'blue'
+  },
+  {
+    id: 4,
+    cardFace: './assets/MythicCards/blue/blue4.png',
+    difficulty: 'easy',
+    color:'blue'
+  },
+  {
+    id: 5,
+    cardFace: './assets/MythicCards/blue/blue5.png',
+    difficulty: 'easy',
+    color:'blue'
+  },
+  {
+    id: 6,
+    cardFace: './assets/MythicCards/blue/blue6.png',
+    difficulty: 'hard',
+    color:'blue'
+  },
+  {
+    id: 7,
+    cardFace: './assets/MythicCards/blue/blue7.png',
+    difficulty: 'normal',
+    color:'blue'
+  },
+  {
+    id: 8,
+    cardFace: './assets/MythicCards/blue/blue8.png',
+    difficulty: 'hard',
+    color:'blue'
+  },
+  {
+    id: 9,
+    cardFace: './assets/MythicCards/blue/blue9.png',
+    difficulty: 'normal',
+    color:'blue'
+  },
+  {
+    id: 10,
+    cardFace: './assets/MythicCards/blue/blue10.png',
+    difficulty: 'easy',
+    color:'blue'
+  },
+  {
+    id: 11,
+    cardFace: './assets/MythicCards/blue/blue11.png',
+    difficulty: 'normal',
+    color:'blue'
+  },
+  {
+    id: 12,
+    cardFace: './assets/MythicCards/blue/blue12.png',
+    difficulty: 'normal',
+    color:'blue'
+  },
+];
+
+const brownCardsData = [
+  {
+    id: 1,
+    cardFace: './assets/MythicCards/brown/brown1.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 2,
+    cardFace: './assets/MythicCards/brown/brown2.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 3,
+    cardFace: './assets/MythicCards/brown/brown3.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 4,
+    cardFace: './assets/MythicCards/brown/brown4.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 5,
+    cardFace: './assets/MythicCards/brown/brown5.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 6,
+    cardFace: './assets/MythicCards/brown/brown6.png',
+    difficulty: 'hard',
+    color:'brown'
+  },
+  {
+    id: 7,
+    cardFace: './assets/MythicCards/brown/brown7.png',
+    difficulty: 'hard',
+    color:'brown'
+  },
+  {
+    id: 8,
+    cardFace: './assets/MythicCards/brown/brown8.png',
+    difficulty: 'hard',
+    color:'brown'
+  },
+  {
+    id: 9,
+    cardFace: './assets/MythicCards/brown/brown9.png',
+    difficulty: 'hard',
+    color:'brown'
+  },
+  {
+    id: 10,
+    cardFace: './assets/MythicCards/brown/brown10.png',
+    difficulty: 'hard',
+    color:'brown'
+  },
+  {
+    id: 11,
+    cardFace: './assets/MythicCards/brown/brown11.png',
+    difficulty: 'easy',
+    color:'brown'
+  },
+  {
+    id: 12,
+    cardFace: './assets/MythicCards/brown/brown12.png',
+    difficulty: 'easy',
+    color:'brown'
+  },
+  {
+    id: 13,
+    cardFace: './assets/MythicCards/brown/brown13.png',
+    difficulty: 'easy',
+    color:'brown'
+  },
+  {
+    id: 14,
+    cardFace: './assets/MythicCards/brown/brown14.png',
+    difficulty: 'easy',
+    color:'brown'
+  },
+  {
+    id: 15,
+    cardFace: './assets/MythicCards/brown/brown15.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 16,
+    cardFace: './assets/MythicCards/brown/brown16.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 17,
+    cardFace: './assets/MythicCards/brown/brown17.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 18,
+    cardFace: './assets/MythicCards/brown/brown18.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 19,
+    cardFace: './assets/MythicCards/brown/brown19.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 20,
+    cardFace: './assets/MythicCards/brown/brown20.png',
+    difficulty: 'normal',
+    color:'brown'
+  },
+  {
+    id: 21,
+    cardFace: './assets/MythicCards/brown/brown21.png',
+    difficulty: 'easy',
+    color:'brown'
+  },
+];
+
+const greenCardsData = [
+  {
+    id: 1,
+    cardFace: './assets/MythicCards/green/green1.png',
+    difficulty: 'easy',
+    color:'green'
+  },
+  {
+    id: 2,
+    cardFace: './assets/MythicCards/green/green2.png',
+    difficulty: 'hard',
+    color:'green'
+  },
+  {
+    id: 3,
+    cardFace: './assets/MythicCards/green/green3.png',
+    difficulty: 'hard',
+    color:'green'
+  },
+  {
+    id: 4,
+    cardFace: './assets/MythicCards/green/green4.png',
+    difficulty: 'hard',
+    color:'green'
+  },
+  {
+    id: 5,
+    cardFace: './assets/MythicCards/green/green5.png',
+    difficulty: 'hard',
+    color:'green'
+  },
+  {
+    id: 6,
+    cardFace: './assets/MythicCards/green/green6.png',
+    difficulty: 'hard',
+    color:'green'
+  },
+  {
+    id: 7,
+    cardFace: './assets/MythicCards/green/green7.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 8,
+    cardFace: './assets/MythicCards/green/green8.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 9,
+    cardFace: './assets/MythicCards/green/green9.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 10,
+    cardFace: './assets/MythicCards/green/green10.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 11,
+    cardFace: './assets/MythicCards/green/green11.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 12,
+    cardFace: './assets/MythicCards/green/green12.png',
+    difficulty: 'easy',
+    color:'green'
+  },
+  {
+    id: 13,
+    cardFace: './assets/MythicCards/green/green13.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 14,
+    cardFace: './assets/MythicCards/green/green14.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 15,
+    cardFace: './assets/MythicCards/green/green15.png',
+    difficulty: 'normal',
+    color:'green'
+  },
+  {
+    id: 16,
+    cardFace: './assets/MythicCards/green/green16.png',
+    difficulty: 'easy',
+    color:'green'
+  },
+  {
+    id: 17,
+    cardFace: './assets/MythicCards/green/green17.png',
+    difficulty: 'easy',
+    color:'green'
+  },
+  {
+    id: 18,
+    cardFace: './assets/MythicCards/green/green18.png',
+    difficulty: 'easy',
+    color:'green'
+  },
+];
 
 const ancientsList = document.querySelectorAll('.main-card__item');
 const difficultyList = document.querySelectorAll('.difficulty__item');
